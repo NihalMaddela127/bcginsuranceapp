@@ -1,0 +1,47 @@
+table {
+  background-color: white;
+  padding: 3%;
+  width: 100%;
+}
+
+.table-alignment {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  width: 90%;
+}
+
+.table-cell {
+  text-align: center;
+  font-size: 14px;
+}
+
+td, th {
+  padding: 0 2px 0 2px !important;
+  width: auto;
+}
+
+.table-prim {
+  text-decoration: none;
+}
+
+.searchArea {
+  padding: 10px 0 10px 0;
+  display: inline-block;
+  background-color: white;
+  border-bottom: 2px solid lightgray;
+}
+
+.search-input {
+  max-width: 25%;
+  border: 1px solid lightgray;
+}
+
+.search-button {
+  margin-left: 10px;
+  border: 1px solid lightgray;
+  background-color: rgba(0, 0, 255, 0.6);
+  border-radius: 5px;
+  cursor: pointer;
+}

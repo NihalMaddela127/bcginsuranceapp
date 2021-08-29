@@ -1,0 +1,76 @@
+<div>
+  <button [routerLink]="['/charts']">View Charts</button>
+</div>
+<div class="table-alignment mat-elevation-z8">
+  <div class="searchArea col-12">
+    <mat-label class="col-4">Search by Policy ID or Customer ID : </mat-label>
+    <input class="col-4 search-input" matInput [(ngModel)]="searchTerm">
+    <button mat-stroked-button class="search-button col-1" color="primary" (click)="updateFilter()" >Search</button>
+  </div>
+  <table mat-table [dataSource]="dataSource" center>
+    <ng-container matColumnDef="Policy_id">
+      <th class="table-cell" mat-header-cell *matHeaderCellDef> Policy Id </th>
+      <td class="table-cell" mat-cell *matCellDef="let element"><a class="table-prim" [routerLink]="['/clientDetails', element.Policy_id]"> {{element.Policy_id}} </a></td>
+    </ng-container>
+    <ng-container matColumnDef="Date_of_Purchase">
+      <th class="table-cell" mat-header-cell *matHeaderCellDef> Date of Purchase </th>
+      <td class="table-cell" mat-cell *matCellDef="let element"> {{element.Date_of_Purchase}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Customer_id">
+      <th class="table-cell" mat-header-cell *matHeaderCellDef> Customer Id </th>
+      <td class="table-cell" mat-cell *matCellDef="let element"> {{element.Customer_id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Fuel">
+      <th class="table-cell" mat-header-cell *matHeaderCellDef> Fuel </th>
+      <td class="table-cell" mat-cell *matCellDef="let element"> {{element.Fuel}} </td>
+    </ng-container>
+    <ng-container matColumnDef="VEHICLE_SEGMENT">
+      <th class="table-cell" mat-header-cell *matHeaderCellDef> Vehicle Segment </th>
+      <td class="table-cell" mat-cell *matCellDef="let element"> {{element.VEHICLE_SEGMENT}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Premium">
+      <th class="table-cell" mat-header-cell *matHeaderCellDef> Premium </th>
+      <td class="table-cell" mat-cell *matCellDef="let element"> {{element.Premium}} </td>
+    </ng-container>
+    <ng-container matColumnDef="bodily_injury_liability">
+      <th class="table-cell" mat-header-cell *matHeaderCellDef> Bodily Injury Liability </th>
+      <td class="table-cell" mat-cell *matCellDef="let element"> {{element.bodily_injury_liability | boolToString: ['toggle']}} </td>
+    </ng-container>
+    <ng-container matColumnDef="personal_injury_protection">
+      <th class="table-cell" mat-header-cell *matHeaderCellDef> Personal Injury Protection </th>
+      <td class="table-cell" mat-cell *matCellDef="let element"> {{element.personal_injury_protection | boolToString: ['toggle']}} </td>
+    </ng-container>
+    <ng-container matColumnDef="property_damage_liability">
+      <th class="table-cell" mat-header-cell *matHeaderCellDef> Property Damage Liability </th>
+      <td class="table-cell" mat-cell *matCellDef="let element"> {{element.property_damage_liability | boolToString: ['toggle']}} </td>
+    </ng-container>
+    <ng-container matColumnDef="collision">
+      <th class="table-cell" mat-header-cell *matHeaderCellDef> Collision </th>
+      <td class="table-cell" mat-cell *matCellDef="let element"> {{element.collision | boolToString: ['toggle']}} </td>
+    </ng-container>
+    <ng-container matColumnDef="comprehensive">
+      <th class="table-cell" mat-header-cell *matHeaderCellDef> Comprehensive </th>
+      <td class="table-cell" mat-cell *matCellDef="let element"> {{element.comprehensive | boolToString: ['toggle']}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Customer_Gender">
+      <th class="table-cell" mat-header-cell *matHeaderCellDef> Customer Gender </th>
+      <td class="table-cell" mat-cell *matCellDef="let element"> {{element.Customer_Gender}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Customer_Income_group">
+      <th class="table-cell" mat-header-cell *matHeaderCellDef> Customer Income Group </th>
+      <td class="table-cell" mat-cell *matCellDef="let element"> {{element.Customer_Income_group}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Customer_Region">
+      <th class="table-cell" mat-header-cell *matHeaderCellDef> Customer Region </th>
+      <td class="table-cell" mat-cell *matCellDef="let element"> {{element.Customer_Region}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Customer_Marital_status">
+      <th class="table-cell" mat-header-cell *matHeaderCellDef> Customer Marital Status </th>
+      <td class="table-cell" mat-cell *matCellDef="let element"> {{element.Customer_Marital_status | boolToString: ['marital']}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator (page)="updateFilter($event)" [pageSizeOptions]="[10, 50, 100]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

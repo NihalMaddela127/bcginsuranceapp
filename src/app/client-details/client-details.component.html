@@ -1,0 +1,8 @@
+<div class="fields-section col-8" *ngIf="clientForm" [formGroup]="clientForm" (ngSubmit)="save()">
+  <div class="field-row col-12" *ngFor="let field of clientForm.controls | keyvalue">
+      <mat-label class="field-item col-5">{{getFieldName(field.key)}}</mat-label>
+      <mat-form-field class="field-item col-5" appearance="fill">
+        <input matInput formControlName="{{field.key}}">
+      </mat-form-field>
+  </div>
+</div>

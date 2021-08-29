@@ -1,0 +1,14 @@
+<mat-form-field appearance="fill">
+  <mat-label>Filter by Region</mat-label>
+  <mat-select [(ngModel)]="selectedRegion" (selectionChange)="fetchData()" name="region">
+    <mat-option *ngFor="let region of regions" [value]="region.value">
+      {{region.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div *ngIf="barChartData.length" style="display: block;">
+  <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+    [plugins]="barChartPlugins" [legend]="barChartLegend" [chartType]="barChartType">
+  </canvas>
+</div>
